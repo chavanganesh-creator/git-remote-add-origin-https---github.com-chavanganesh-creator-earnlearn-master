@@ -1,0 +1,6 @@
+{
+    "projectManager.git.baseFolders": [
+        "earnlearn"
+    ],
+    "git.ignoreLimitWarning": true
+}
