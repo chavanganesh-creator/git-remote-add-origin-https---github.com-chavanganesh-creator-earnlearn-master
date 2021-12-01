@@ -19,6 +19,7 @@ import { TasklistComponent } from './tasklist/tasklist.component';
 import { StudentComponent } from './student/student.component';
 import { SupervisorlistComponent } from './supervisorlist/supervisorlist.component';
 import { StudentdetailComponent } from './studentdetail/studentdetail.component';
+import { SupervisordetailComponent } from './supervisordetail/supervisordetail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { StudentdetailComponent } from './studentdetail/studentdetail.component'
     TasklistComponent,
     StudentComponent,
     SupervisorlistComponent,
-    StudentdetailComponent
+    StudentdetailComponent,
+    SupervisordetailComponent
   ],
   imports: [
     BrowserModule,

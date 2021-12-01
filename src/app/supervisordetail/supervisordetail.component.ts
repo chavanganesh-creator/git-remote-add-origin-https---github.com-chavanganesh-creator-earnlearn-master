@@ -4,11 +4,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserconnectService } from '../service/userconnect.service';
 
 @Component({
-  selector: 'app-studentdetail',
-  templateUrl: './studentdetail.component.html',
-  styleUrls: ['./studentdetail.component.css']
+  selector: 'app-supervisordetail',
+  templateUrl: './supervisordetail.component.html',
+  styleUrls: ['./supervisordetail.component.css']
 })
-export class StudentdetailComponent implements OnInit {
+export class SupervisordetailComponent implements OnInit {
   registerForm:any= FormGroup;
   submitted = false;
   desider:boolean=true;
@@ -66,9 +66,6 @@ export class StudentdetailComponent implements OnInit {
       );
       }
       alert('Selected   '+this.model.name)
-  }
-  submitView(i:any,userItr:any){
-    
   }
    delRow:boolean=false;
    status: boolean = false;

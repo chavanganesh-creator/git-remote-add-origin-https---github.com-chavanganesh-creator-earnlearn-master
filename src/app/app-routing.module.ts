@@ -27,6 +27,8 @@ const routes: Routes = [
   {path:'user/supervisor',component:SupervisorComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'studentdetail',component:StudentdetailComponent},
+  {path:'supervisordetail',component:StudentdetailComponent},
+
   {path:'user/student',component:StudentComponent},
   
   {path:'tasklist',component:TasklistComponent},

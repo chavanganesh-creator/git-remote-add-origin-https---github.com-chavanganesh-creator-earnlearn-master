@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TasklistconnectService } from '../service/tasklistconnect.service';
 
 @Component({
@@ -9,8 +9,15 @@ import { TasklistconnectService } from '../service/tasklistconnect.service';
 export class TasklistComponent implements OnInit {
 
   constructor(private _taskListService:TasklistconnectService) { }
+  @Input() window:any;
+  @Input() windowSeconde:any;
+  desider:boolean=true;
+
   taskListBean:any;
   ngOnInit(): void {
+   
+  }
+  ngAfterContentInit(){
     this._taskListService.getDetail().subscribe(
       (response) => {
         this.taskListBean=response;
@@ -28,4 +35,10 @@ clickEvent(i:any){
   this.activeIndex=i;
     this.status = !this.status;       
 }
+editDetails(){
+  this.desider=!this.desider;
+ }
+ submitResult(i:any,userItr:any){
+
+ }
 }

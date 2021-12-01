@@ -21,7 +21,7 @@ export class TaskComponent implements OnInit {
   }
   constructor(private _taskconnect:TaskconnectService) { }
    
-
+  
   ngOnInit(): void {
      
   }

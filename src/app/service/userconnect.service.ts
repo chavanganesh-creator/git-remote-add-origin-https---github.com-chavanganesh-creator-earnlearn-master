@@ -22,4 +22,8 @@ export class UserconnectService {
     let url="http://localhost:8080/user/deleteById/";
     return this.httpClient.delete<number>(url+uid);
    }
+   putDataById(userItr:any):Observable<any>{
+    let url="http://localhost:8080/user/updateUser/";
+    return this.httpClient.put<number>(url,userItr);
+   }
 }

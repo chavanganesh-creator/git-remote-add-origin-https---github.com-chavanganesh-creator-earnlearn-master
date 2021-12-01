@@ -1,7 +1,6 @@
 <div class="container" style="width: 55%;position: absolute;" >
-  <h2>Task Details</h2>
-   
-  <div style="margin-left: 5%;margin-right: 25%;">
+    <ng-container *ngIf="windowSeconde=='flop'?true:false;">
+  <div  style="margin-left: 5%;margin-right: 25%;">
     <strong>Task Details</strong> 
     <div class="card-body login-form "  *ngFor="let taskItem of  taskListBean,let i=index">
       <h3 class="card-title"  >{{taskItem.name}}</h3><hr style="width: 100%;color: #000;">
@@ -18,4 +17,43 @@
       </div>
     </div>
   </div> 
+   </ng-container>
 </div>
+<ng-container *ngIf="window">
+  <table id="dtBasicExample" class="table table-striped table-bordered table-sm" style="background-color: aliceblue;"
+  cellspacing="0" width="100%">
+  <thead>
+      <tr>
+          <th class="th-sm">Task ID</th>
+          <th class="th-sm">Name</th>
+          <th class="th-sm">description</th>
+          <th class="th-sm">comment</th>
+          <th class="th-sm">quantity</th>
+          <th class="th-sm">createdOn</th>
+          <th class="th-sm">status</th>
+          <th class="th-sm">endDate</th>
+          <th class="th-sm">startDate</th>
+          <th class="th-sm">Operation</th>
+
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let userItr of taskListBean,let i=index">
+          <td><input [(ngModel)]="userItr.tid" class="form-control" type="number" name="{{userItr.uid}}" [disabled]='desider'/></td>
+          <td><input [(ngModel)]="userItr.name" class="form-control" type="text" name="{{userItr.name}}" [disabled]='desider'/></td>               
+          <td><input [(ngModel)]="userItr.description" class="form-control" type="text" name="{{userItr.description}}" [disabled]='desider'/></td>   
+          <td><input [(ngModel)]="userItr.comment" class="form-control" type="text" name="{{userItr.comment}}" [disabled]='desider'/></td>    
+          <td><input [(ngModel)]="userItr.quantity" class="form-control" type="text" name="{{userItr.quantity}}" [disabled]='desider'/></td>    
+          <td><input [(ngModel)]="userItr.createdOn" class="form-control" type="text" name="{{userItr.createdOn}}" [disabled]='desider'/></td>    
+          <td><input [(ngModel)]="userItr.status" class="form-control" type="text" name="{{userItr.status}}" [disabled]='desider'/></td>    
+          <td><input [(ngModel)]="userItr.endDate" class="form-control" type="text" name="{{userItr.endDate}}" [disabled]='desider'/></td>    
+          <td><input [(ngModel)]="userItr.startDate" class="form-control" type="text" name="{{userItr.startDate}}" [disabled]='desider'/></td>    
+          <td class='row'>
+              <button name="editbtn" class="btn col" (click)="editDetails()"><i class="fa fa-edit"></i></button>
+              <button name="editbtn" class="btn col" (click)="submitResult(i,userItr)"><i class="fa fa-check-square"></i></button>
+          </td>                
+      </tr>
+  </tbody>
+</table>
+</ng-container>
+

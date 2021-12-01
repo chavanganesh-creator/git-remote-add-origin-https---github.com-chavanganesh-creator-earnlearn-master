@@ -25,29 +25,28 @@
                     class="fas fa-user-secret me-2"></i>Earn and Learn</div>
             <div class="list-group list-group-flush my-3">
                 
-                <button href="#" class="btn list-group-item list-group-item-action bg-transparent second-text active"><i
+                <button  class="btn list-group-item list-group-item-action bg-transparent second-text active"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</button>
-                <button href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-project-diagram me-2"></i>Student</button>
-                <button href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-chart-line me-2"></i>Supervisor</button>
-                <button href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <button  class="btn list-group-item list-group-item-action bg-transparent second-text fw-bold" (click)="onboard(param='student')"><i
+                        class="fas fa-project-diagram me-2" ></i>Student</button>
+                <button  class="btn list-group-item list-group-item-action bg-transparent second-text fw-bold" (click)="onboard(param='supervisor')"><i
+                        class="fas fa-chart-line me-2" ></i>Supervisor</button>
+                        
+                <button  class="list-group-item list-group-item-action bg-transparent second-text fw-bold" (click)="onboard(param='tasklist')"><i
                         class="fas fa-paperclip me-2"></i>Task List</button>
-                <button href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-shopping-cart me-2"></i>Payments</button>
-                <button href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <button  class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-gift me-2"></i>Report</button>
-                <button href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <button  class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-comment-dots me-2"></i>Deprtment</button>
-                <button href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <button  class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-map-marker-alt me-2"></i>College</button>
-                <button href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                <button  class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</button>
             </div>
         </div>
 
       <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+            <nav class="btn navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
                     <h2 class="fs-2 m-0">Dashboard</h2>
@@ -100,9 +99,11 @@
                         </div>
                     </div>
                 </div>
+                
 
                 <div class="row my-3">
-                    <h3 class="">Recent Orders</h3>
+                    <ng-container *ngIf="showcase=='student'">
+                    <h3 style="font-weight:bold;">Student Details</h3>
                    
 
                          <button class="btn btn-success col"  style="margin:3%" name="view"  (click)='viewOperation()'>Student View Details</button>
@@ -111,6 +112,34 @@
                          <button class="btn btn-success col"  style="margin:3%" name="update"  (click)='updateOperation()'>Student Update Details</button>
 
                          <ng-container><app-studentdetail [showView]='showView'></app-studentdetail></ng-container>
+                    </ng-container>
+                </div>
+
+                <div class="row my-3">
+                    <ng-container *ngIf="showcase=='supervisor'">
+                    <h3 style="font-weight:bold;">supervisor Details</h3>
+                   
+
+                         <button class="btn btn-success col"  style="margin:3%" name="view"  (click)='viewOperation()'>Supervisor View Details</button>
+                         <button class="btn btn-success col"  style="margin:3%"name="delete" (click)='deletetOperation()'>Supervisor Delete Details</button>
+                         <button class="btn btn-success col"  style="margin:3%" name="add" (click)='addOperation()'>Supervisor Add Details</button>
+                         <button class="btn btn-success col"  style="margin:3%" name="update"  (click)='updateOperation()'>Supervisor Update Details</button>
+
+                         <ng-container><app-studentdetail [showView]='showView'></app-studentdetail></ng-container>
+                    </ng-container>
+                </div>
+                <div class="row my-3">
+                    <ng-container *ngIf="showcase=='tasklist'">
+                    <h3 style="font-weight:bold;">Task List Details</h3>
+                   
+
+                         <!-- <button class="btn btn-success col"  style="margin:3%" name="view"  (click)='viewOperation()'>Supervisor View Details</button>
+                         <button class="btn btn-success col"  style="margin:3%"name="delete" (click)='deletetOperation()'>Supervisor Delete Details</button>
+                         <button class="btn btn-success col"  style="margin:3%" name="add" (click)='addOperation()'>Supervisor Add Details</button>
+                         <button class="btn btn-success col"  style="margin:3%" name="update"  (click)='updateOperation()'>Supervisor Update Details</button> -->
+
+                         <ng-container><app-tasklist [window]="windowHider" [windowSeconde]="windowHiderSeconde"></app-tasklist></ng-container>
+                    </ng-container>
                 </div>
             </div>
         </div> 
